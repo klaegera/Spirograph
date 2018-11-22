@@ -1,0 +1,17 @@
+<project name="Spirograph" default="jar">
+	<target name="compile">
+		<mkdir dir="build"/>
+		<javac srcdir="src" destdir="build" includeantruntime="false"/>
+	</target>
+	<target name="jar" depends="compile">
+		<jar destfile="${ant.project.name}.jar" basedir="build">
+			<manifest>
+				<attribute name="Main-Class" value="${ant.project.name}"/>
+			</manifest>
+		</jar>
+	</target>
+	<target name="clean">
+		<delete dir="build"/>
+		<delete file="${ant.project.name}.jar"/>
+	</target>
+</project>
